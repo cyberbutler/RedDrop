@@ -1,0 +1,31 @@
+auto_extract_tar: yes 
+auto_process: yes
+debug: yes
+dump_config: yes
+host: 0.0.0.0
+port: 80
+process_list: []
+processor_arguments:
+    openssl-aes256-pbkdf2:
+        password: EncryptMe
+        iterations: 10000
+    b64: {}
+    gzip: {}
+    hex: {}
+failure_response: Failed
+success_response: Received
+log_format_template:
+    initial_request: '[{{ c("blue", time.strftime("%m/%d/%y %H:%M:%S")) }}] {{ c("yellow", src) }} {{ c("grey", method) }} {{ c("green", "/" + path) }}'
+    data_received: '[{{ c("blue", ", ".join(process)) }}]-> {{ c("green", field) }}
+
+        {{processedValue if processedValue else originalValue}}
+
+
+        '
+    file_uploaded: '[{{ c("bold", c("red", "FILE UPLOAD")) }}][{{ c("blue", ", ".join(process)) }}] {% if autoExtracted %}{{c("yellow", "Extracted Archive")}}{% endif %} => {{ c("green", fileDir + "/" + fileName) }}
+
+        '
+log_encryption_password: no
+upload_dir: uploads
+process_list_header: Process
+

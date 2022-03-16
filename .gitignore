@@ -1,0 +1,6 @@
+*.pyc
+logs/
+uploads/
+.obsidian/
+__pycache__
+*.lock

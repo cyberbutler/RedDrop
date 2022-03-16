@@ -1,0 +1,8 @@
+*.lock
+*.pyc
+__pycache__
+logs/
+uploads/
+.obsidian
+.dockerignore
+Dockerfile
