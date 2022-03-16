@@ -81,6 +81,7 @@ Variables, use `--dump_config` to see all of the options
 tar -cz /etc/passwd \
 | openssl enc -a -e -aes-256-cbc -pbkdf2 -pass 'pass:EncryptMe' \
 | curl 127.0.0.1$PWD -F "dir_listing=`ls -al | openssl enc -a -e -aes-256-cbc -pbkdf2 -pass 'pass:EncryptMe'`" -F "upload=@-" 
+```
 
 ![example-screenshot.png](docs/example-screenshot.png)
 
