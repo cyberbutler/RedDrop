@@ -1,5 +1,6 @@
 __author__ = "Allen Butler"
 __maintainer__ = "cyberbutler"
+__version__ = '0.1'
 
 import logging
 import datetime
@@ -18,6 +19,11 @@ app.logger.setLevel(logging.INFO)
 
 for Processor in processors:
     Processor().loadParameters()
+
+@app.after_request
+def add_header(response):
+    response.headers['Server'] = f'RedBox Exfil Server {__version__}'
+    return response
 
 @app.route('/', methods=['POST', 'GET', 'PUT'], defaults={"path": ""})
 @app.route('/<path:path>', methods=['POST', 'GET', 'PUT'])
