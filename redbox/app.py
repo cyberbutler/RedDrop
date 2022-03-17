@@ -58,8 +58,8 @@ def processRequest(path):
         # Parse Request Parameters
         for field,value in request_parameters.items():
             if len(value) == 0:
-                app.logger.info(f"Parameter {field} has no value")
-                continue
+                app.logger.info(f"Parameter {field} has no value, will treat field as value")
+                value = field
 
             dataLogObject = processRequestParameter(
                 field, value, processing_list 
