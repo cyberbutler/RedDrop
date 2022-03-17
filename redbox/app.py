@@ -42,7 +42,7 @@ def processRequest(path):
         "files": [],
         "headers": dict(request.headers),
         "data": [],
-        "password": config['processor_arguments']['openssl-aes256-pbkdf2']['password'].get() if config['log_encryption_password'].get() else None
+        "password": config['processor_arguments']['openssl-aes256-pbkdf2'].get() if config['log_encryption_password'].get() else None
     }
     
     prettyPrintFormatString(
