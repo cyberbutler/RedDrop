@@ -4,6 +4,8 @@ import logging
 import datetime
 from logging.handlers import TimedRotatingFileHandler
 
+from redbox.config import config
+
 from jinja2 import Environment, BaseLoader
 from pythonjsonlogger import jsonlogger
 
@@ -54,9 +56,14 @@ class RedBoxLogFormatter(logging.Formatter):
     Greys out default logs. This is to draw a greater contrast to the output of prettyPrintFormatString
     """
     def format(self, record):
-        fmt = c('darkgrey', self._fmt)
+        if not config['debug'].get():
+            fmt = c('darkgrey', self._fmt)
+        else:
+            fmt = self._fmt
+
         if record.levelname == "ERROR":
             record.levelname = c("darkred", record.levelname)
+        
 
         formatter = logging.Formatter(fmt)
         return formatter.format(record)
