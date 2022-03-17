@@ -20,7 +20,6 @@ ENV PATH="/.venv/bin:$PATH"
 RUN useradd redbox-user -m
 WORKDIR /redbox
 RUN chown redbox-user:redbox-user .
-RUN chmod g+s /redbox
 USER redbox-user
 
 COPY . .
