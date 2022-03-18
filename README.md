@@ -20,6 +20,10 @@ This software should not be left generally accessible to the broader Internet. I
 - Don't auto extract archives without understanding my filtering method
 
 ## Quick Start
+### Docker
+```bash
+docker run -t -v "$PWD/uploads:/redbox/uploads" -v "$PWD/logs:/redbox/logs" -p "80:80" -n redbox cyberbutler/redbox-exfil-server -h
+```
 ### PipEnv
 ```bash
 pip install --user pipenv
