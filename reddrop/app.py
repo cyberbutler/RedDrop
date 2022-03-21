@@ -7,12 +7,12 @@ import datetime
 
 from flask import Flask, render_template_string, request
 
-from redbox.logger import prettyPrintFormatString
-from redbox.config import config
-from redbox.processors import processors
-from redbox.utils import getListFromConfigHeader
-from redbox.request_processing import processRequestParameter
-from redbox.file_processing import processFile
+from reddrop.logger import prettyPrintFormatString
+from reddrop.config import config
+from reddrop.processors import processors
+from reddrop.utils import getListFromConfigHeader
+from reddrop.request_processing import processRequestParameter
+from reddrop.file_processing import processFile
 
 app = Flask(__name__)
 app.logger.setLevel(logging.INFO)
@@ -22,7 +22,7 @@ for Processor in processors:
 
 @app.after_request
 def add_header(response):
-    response.headers['Server'] = f'RedBox Exfil Server {__version__}'
+    response.headers['Server'] = f'RedDrop Exfil Server {__version__}'
     return response
 
 @app.route('/', methods=['POST', 'GET', 'PUT'], defaults={"path": ""})

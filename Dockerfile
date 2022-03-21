@@ -17,11 +17,11 @@ FROM build as runtime
 COPY --from=build /.venv /.venv
 ENV PATH="/.venv/bin:$PATH"
 
-RUN useradd redbox-user -m
-WORKDIR /redbox
-RUN chown redbox-user:redbox-user .
-USER redbox-user
+RUN useradd reddrop-user -m
+WORKDIR /reddrop
+RUN chown reddrop-user:reddrop-user .
+USER reddrop-user
 
 COPY . .
 
-ENTRYPOINT [ "python", "redbox-server.py" ]
+ENTRYPOINT [ "python", "reddrop-server.py" ]

@@ -18,7 +18,7 @@ class BaseProcessor:
     
     def loadParameters(self) -> None:
         """
-        Sets the default parameters in the Confuse ConfigSource for the Processor.
+        Sets the default parameters in the Confuse ConfigSource for the Coder.
         """
         config[f'processor_arguments'].set({self.name: self.parameters})
     

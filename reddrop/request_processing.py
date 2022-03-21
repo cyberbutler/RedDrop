@@ -1,6 +1,6 @@
-from redbox.logger import logger
-from redbox.config import config
-from redbox.processors import processFromList
+from reddrop.logger import logger
+from reddrop.config import config
+from reddrop.processors import processFromList
 
 def processRequestParameter(field, value, processing_list=[]) -> dict:
     try:

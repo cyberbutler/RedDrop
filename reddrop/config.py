@@ -1,6 +1,6 @@
 import confuse
 
-config = confuse.Configuration('RedBox', __name__)
+config = confuse.Configuration('RedDrop', __name__)
 
 # Defaults
 # The Host to bind to
@@ -62,7 +62,7 @@ config['failure_response'] = (
 
 
 # Set config from environment variables
-# Example: REDBOX_HOST=0.0.0.0
+# Example: REDDROP_HOST=0.0.0.0
 config.set_env()
 
 if __name__ == "__main__":

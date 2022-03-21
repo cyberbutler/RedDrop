@@ -1,4 +1,4 @@
-from redbox.config import config 
+from reddrop.config import config 
 
 def getListFromConfigHeader(request, header:str, default_options:list) -> list:
     """
