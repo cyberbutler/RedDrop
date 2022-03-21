@@ -4,3 +4,4 @@ uploads/
 .obsidian/
 __pycache__
 *.lock
+.DS_Store
