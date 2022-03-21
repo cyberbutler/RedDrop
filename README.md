@@ -1,5 +1,5 @@
-# RedBox Exfil Server
-RedBox Exfil Server is a Python Flask Web Server for Penetration Testers, Red Teamers, and Security Professionals which features:
+# RedDrop Exfil Server
+RedDrop Exfil Server is a Python Flask Web Server for Penetration Testers, Red Teamers, and Security Professionals which features:
 - [[File Upload]]
 - [[Dynamic Request Parameter Logging]]
 - [[Automatic Archive Extraction]]
@@ -22,21 +22,21 @@ This software should not be left generally accessible to the broader Internet. I
 ## Quick Start
 ### Docker
 ```bash
-docker run -t -v "$PWD/uploads:/redbox/uploads" -v "$PWD/logs:/redbox/logs" -p "80:80" -n redbox cyberbutler/redbox-exfil-server -h
+docker run -t -v "$PWD/uploads:/reddrop/uploads" -v "$PWD/logs:/reddrop/logs" -p "80:80" -n reddrop cyberbutler/reddrop-exfil-server -h
 ```
 ### PipEnv
 ```bash
 pip install --user pipenv
 pipenv install
 pipenv shell
-python redbox-server.py -h
+python reddrop-server.py -h
 ```
 
 ### Options
 ```bash
-python redbox-server.py -h
+python reddrop-server.py -h
 
-usage: redbox-server.py [-h] [--host HOST] [--port PORT] [-c CONFIG]
+usage: reddrop-server.py [-h] [--host HOST] [--port PORT] [-c CONFIG]
                         [--dump-config] [--debug]
                         [-p {hex,openssl-aes256-pbkdf2,gzip,b64}]
                         [-A | --auto-process | --no-auto-process]

@@ -1,6 +1,6 @@
 import argparse
 
-from redbox.processors import getProcessorNames
+from reddrop.processors import getProcessorNames
 
 def parse_arguments():
     args = argparse.ArgumentParser(

@@ -1,9 +1,9 @@
 from waitress import serve
 
-from redbox.app import app
-from redbox.config import config
-from redbox.args import parse_arguments
-from redbox.logger import prettyPrintFormatString
+from reddrop.app import app
+from reddrop.config import config
+from reddrop.args import parse_arguments
+from reddrop.logger import prettyPrintFormatString
 
 if __name__ == "__main__":
     import sys

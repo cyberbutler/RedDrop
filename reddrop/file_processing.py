@@ -8,9 +8,9 @@ from unicodedata import numeric
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import FileStorage
 
-from redbox.config import config
-from redbox.processors import processFromList
-from redbox.logger import logger
+from reddrop.config import config
+from reddrop.processors import processFromList
+from reddrop.logger import logger
 
 def tarfileIsSafe(tarFile: tarfile.TarFile):
     """

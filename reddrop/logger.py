@@ -4,7 +4,7 @@ import logging
 import datetime
 from logging.handlers import TimedRotatingFileHandler
 
-from redbox.config import config
+from reddrop.config import config
 
 from jinja2 import Environment, BaseLoader
 from pythonjsonlogger import jsonlogger
@@ -51,7 +51,7 @@ def prettyPrintFormatString(fmt:str, vars:dict) -> str:
     output = template.render(c=c, **vars)
     print(output.replace('\r\n', '\n'), file=sys.stderr)
 
-class RedBoxLogFormatter(logging.Formatter):
+class RedDropLogFormatter(logging.Formatter):
     """
     Greys out default logs. This is to draw a greater contrast to the output of prettyPrintFormatString
     """
@@ -76,7 +76,7 @@ logger = logging.getLogger()
 # STDOUT Formatter
 stdoutFormat = '%(levelname)s - %(name)s - %(funcName)s - L:%(lineno)s %(message)s'
 stdoutHandler= logging.StreamHandler()
-stdoutHandler.setFormatter(RedBoxLogFormatter(stdoutFormat))
+stdoutHandler.setFormatter(RedDropLogFormatter(stdoutFormat))
 
 # JSON Formatter
 custom_format = ' '.join(log_format(supported_keys))
