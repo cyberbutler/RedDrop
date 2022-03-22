@@ -1,3 +1,4 @@
+![Red Drop](docs/RedDrop.png)
 # RedDrop Exfil Server
 RedDrop Exfil Server is a Python Flask Web Server for Penetration Testers, Red Teamers, and Security Professionals which features:
 - [[File Upload]]
@@ -36,14 +37,46 @@ python reddrop-server.py -h
 ```bash
 python reddrop-server.py -h
 
-usage: reddrop-server.py [-h] [--host HOST] [--port PORT] [-c CONFIG]
-                        [--dump-config] [--debug]
-                        [-p {hex,openssl-aes256-pbkdf2,gzip,b64}]
-                        [-A | --auto-process | --no-auto-process]
-                        [--auto-extract-tar]
-                        [--encryption-password PROCESSOR_ARGUMENTS.OPENSSL-AES256-PBKDF2.PASSWORD]
+usage: reddrop-server.py [-h] [--host HOST] [--port PORT] [-c CONFIG] [--dump-config] [--debug] [-p {hex,openssl-aes256-pbkdf2,gzip,b64}]
+                         [-A | --auto-process | --no-auto-process] [--auto-extract-tar]
+                         [--encryption-password PROCESSOR_ARGUMENTS.OPENSSL-AES256-PBKDF2.PASSWORD]
 
-A Webserver for File Exfiltration and C2.
+                      +:                     
+                    .*##-                    
+                   :##**#+                   
+                  +#*****##:                 
+                :##********#+                
+               =#***********#+               
+              =#******#******#*              
+            .+#******#-*#*****##-            
+           -#******#*.  =#******#*           
+          +#******#+     :##*****##:         
+        .*#*****##-        +#******#=        
+       :#******#+.          -#******#+       
+      -#******#-             :##*****#*.     
+     +#******#:               .*#*****##:    
+   :##*****#*.                  =#******#+   
+    *#****#-                     .*#****#-   
+   +#***##.                        =#***##:  
+  +#****##.                        +#*****#: 
+ +#****##.                          =#*****#.
+:#*****#.                            ******#=
+*#******         Red    Drop         -#******
+#******+                             :#*****#
+#*******                             -#*****#
+*#*****#.                            +*******
+-#*****#*                           -#*****#=
+ *#*****#*.                        =#******#.
+  *#******#=.                    -*#******#- 
+   +#*******#*-               :+##******##:  
+    -##*******##*+=-:...::-=+##********#*.   
+      -*#**********#######***********#+:     
+        -*#***********************##+.       
+          .=+##***************##*=:          
+              :-=+**######**+=:              
+
+     A Webserver for File and Data Exfiltration.
+        Author: @cyberbutler/@thecyberbutler
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -51,31 +84,21 @@ optional arguments:
   --port PORT, -P PORT  The port to bind to (default: 80)
   -c CONFIG, --config CONFIG
                         YAML config file path (default: None)
-  --dump-config         Dump the configuration settings as YAML (default:
-                        False)
+  --dump-config         Dump the configuration settings as YAML (default: False)
   --debug               Enable Flask's Debug Mode (default: False)
   -p {hex,openssl-aes256-pbkdf2,gzip,b64}, --processor {hex,openssl-aes256-pbkdf2,gzip,b64}
-                        Specify a processor to use. This flag can be used more
-                        than once to define multiple process_list functions.
-                        Use this flag in the order in which you wish to
-                        process received data (default: [])
+                        Specify a processor to use. This flag can be used more than once to define multiple process_list functions. Use this
+                        flag in the order in which you wish to process received data (default: [])
   -A, --auto-process, --no-auto-process
-                        Automatically run processors based on detected data.
-                        This option is enabled by default, but should be
-                        disabled (--no-auto-process) when you receive output
-                        you don't expect. Such as in the case of Base64
-                        decoding being run on output that is not Base64
-                        encoded. Instead, force the process with the `-p`
-                        flag. (default: True)
+                        Automatically run processors based on detected data. This option is enabled by default, but should be disabled (--no-
+                        auto-process) when you receive output you don't expect. Such as in the case of Base64 decoding being run on output that
+                        is not Base64 encoded. Instead, force the process with the `-p` flag. (default: True)
   --auto-extract-tar, -x
-                        Auto extract TAR archives received by the server.
-                        (default: False)
+                        Auto extract TAR archives received by the server. (default: False)
   --encryption-password PROCESSOR_ARGUMENTS.OPENSSL-AES256-PBKDF2.PASSWORD
-                        The password used to decrypt/encrypt. (default:
-                        EncryptMe)
+                        The password used to decrypt/encrypt. (default: EncryptMe)
 
-Far more configuration options exist which must be specified in Environment
-Variables, use `--dump_config` to see all of the options
+Far more configuration options exist which must be specified in Environment Variables, use `--dump-config` to see all of the options
 
 ```
 

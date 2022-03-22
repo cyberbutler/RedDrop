@@ -1,12 +1,55 @@
 import argparse
 
+from reddrop.logger import c
 from reddrop.processors import getProcessorNames
+
+
+class CustomArgumentFormatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
+    pass
+
+def ascii_banner():
+    return """
+                      +:                     
+                    .*##-                    
+                   :##**#+                   
+                  +#*****##:                 
+                :##********#+                
+               =#***********#+               
+              =#******#******#*              
+            .+#******#-*#*****##-            
+           -#******#*.  =#******#*           
+          +#******#+     :##*****##:         
+        .*#*****##-        +#******#=        
+       :#******#+.          -#******#+       
+      -#******#-             :##*****#*.     
+     +#******#:               .*#*****##:    
+   :##*****#*.                  =#******#+   
+    *#****#-                     .*#****#-   
+   +#***##.                        =#***##:  
+  +#****##.                        +#*****#: 
+ +#****##.                          =#*****#.
+:#*****#.                            ******#=
+*#******         Red    Drop         -#******
+#******+                             :#*****#
+#*******                             -#*****#
+*#*****#.                            +*******
+-#*****#*                           -#*****#=
+ *#*****#*.                        =#******#.
+  *#******#=.                    -*#******#- 
+   +#*******#*-               :+##******##:  
+    -##*******##*+=-:...::-=+##********#*.   
+      -*#**********#######***********#+:     
+        -*#***********************##+.       
+          .=+##***************##*=:          
+              :-=+**######**+=:              
+
+    """.replace('*', c('red', '*'))
 
 def parse_arguments():
     args = argparse.ArgumentParser(
-        description=f"A Webserver for File Exfiltration and C2.",
-        epilog="Far more configuration options exist which must be specified in Environment Variables, use `--dump_config` to see all of the options",
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+        description=f"{ascii_banner()} A Webserver for File and Data Exfiltration.\n\tAuthor: @{c('red', 'cyberbutler')}/@{c('blue', 'thecyberbutler')}",
+        epilog="Far more configuration options exist which must be specified in Environment Variables, use `--dump-config` to see all of the options",
+        formatter_class=CustomArgumentFormatter
     )
     args.add_argument(
         '--host', '-H', 
