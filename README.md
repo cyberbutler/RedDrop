@@ -1,11 +1,11 @@
 ![Red Drop](docs/RedDrop.png)
 # RedDrop Exfil Server
 RedDrop Exfil Server is a Python Flask Web Server for Penetration Testers, Red Teamers, and Security Professionals which features:
-- [[File Upload]]
-- [[Dynamic Request Parameter Logging]]
-- [[Automatic Archive Extraction]]
-- [[Automatic Decryption]]
-- [[Automatic Decoding]]
+- [File Upload](docs/FileUpload.md)
+- [Automatic Payload Processing](docs/PayloadProcessing.md)
+- [Automatic Archive Extraction](docs/ArchiveExtraction.md)
+- [JSON Logging](docs/JSONLogging.md)
+- [Configurable Options](docs/Configurations.md)
 
 This software is intended to be used as an a rudementary C2 endpoint for capturing web request data in various scenarios. Some examples may include:
 - A blind command injection vulnerability

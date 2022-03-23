@@ -19,7 +19,7 @@ config['process_list'] = []
 # This software uses a small function to check if any tar members have insecure filenames before extraction
 config['auto_extract_tar'] = False
 
-# The header that can be passed by clients to specify decryption order
+# The header that can be passed by clients to specify processing order
 config['process_list_header'] = 'Process'
 
 # The directory to store files
