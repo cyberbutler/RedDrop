@@ -24,4 +24,6 @@ USER reddrop-user
 
 COPY . .
 
+VOLUME [ "/reddrop/uploads", "/reddrop/logs" ]
+
 ENTRYPOINT [ "python", "reddrop-server.py" ]
