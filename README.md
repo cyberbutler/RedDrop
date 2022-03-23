@@ -12,6 +12,10 @@ This software is intended to be used as an a rudementary C2 endpoint for capturi
 - An XSS attack where a quick and dynamic web request logging server is needed
 - A situation where remote shell access has been obtained and a verbose-logging web-based exfiltration server is desired
 
+## Demo
+[![Demo](https://img.youtube.com/vi/x9KmGCfyyZ0/0.jpg)](https://www.youtube.com/watch?v=x9KmGCfyyZ0)
+---
+
 **This project is still in development and some features may be buggy. If you run into problems, please open an Issue!**
 
 ### A note on security
