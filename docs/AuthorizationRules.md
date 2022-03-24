@@ -12,6 +12,6 @@ A Key can be one of:
 
 By Default, no Authorization Rules are set, which means that any request received will be processed.
 
-If a request fails a Authorization Rule, the configured `failure_response` will be returned.
+If a request fails an Authorization Rule, the configured `failure_response` will be returned.
 
-*Be careful, the Keys are case-sensitive, so if you run into an issue where your Authorization Rule is not working, be certain you are receiving are matching the case of the expected Key*
+*Be careful, the Keys are case-sensitive, so if you run into an issue where your Authorization Rule is not working, be certain you are matching the case of the expected Key*
