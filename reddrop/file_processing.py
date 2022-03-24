@@ -95,7 +95,11 @@ def processFile(parameter:str, f:FileStorage, src_ip:str, processing_list=[]):
     This function will process and extract tar archive files passed to it given a set of configuration options.
     """
 
-    fileDir = os.path.join(os.path.abspath(config['upload_dir'].get()), secure_filename(src_ip))
+    fileDir = os.path.join(
+        os.path.abspath(config['upload_dir'].get()), 
+        secure_filename('-'.join(config['tags'].get())),
+        secure_filename(src_ip)
+    )
 
     if not os.path.exists(fileDir):
         os.makedirs(fileDir)

@@ -70,12 +70,12 @@ def parse_arguments():
         formatter_class=CustomArgumentFormatter
     )
     args.add_argument(
-        '--host', '-H', 
+        '-H', '--host', 
         help="The host IP Address to bind to", 
         default="0.0.0.0"
     )
     args.add_argument(
-        '--port', '-P', 
+        '-P','--port',
         help="The port to bind to", 
         default=80, 
         type=int
@@ -111,7 +111,7 @@ def parse_arguments():
         action=argparse.BooleanOptionalAction
     )
     args.add_argument(
-        '--auto-extract-tar', '-x',
+        '-x','--auto-extract-tar',
         help='Auto extract TAR archives received by the server.',
         action='store_true',
         default=False
@@ -126,6 +126,12 @@ def parse_arguments():
         '-r', '--authorization_rules',
         help="Specify an Authorization Rule to deny requests which do not match the provided Key and Regex value pair. Specified as <Key>=<Regex>.",
         action=ParseKeyValue
+    )
+    args.add_argument(
+        '-t', '--tag',
+        help='Tag data received during this session in the logs as well as the directory files are uploaded to. Example: -t log4j -t acme.org',
+        action='append',
+        dest='tags'
     )
 
     return args.parse_args()
