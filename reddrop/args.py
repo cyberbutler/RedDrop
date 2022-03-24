@@ -7,6 +7,24 @@ from reddrop.processors import getProcessorNames
 class CustomArgumentFormatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
     pass
 
+class ParseKeyValue(argparse._AppendAction):
+    """
+    This Argparse Action extends the "append" action. It will split a provided argument on the first `=` character and return
+    a dictionary like so: 
+    ```
+        key=value 
+    # Becomes:
+        {'key': 'value'}
+    ```
+    """
+    def __call__(self, parser: argparse.ArgumentParser, namespace: argparse.Namespace, values, option_string) -> None:
+        splitValues = values.split('=')
+        key = splitValues[0]
+        rule = '='.join(splitValues[1:])
+        values = {'key': key, 'rule': rule}
+
+        super(ParseKeyValue, self).__call__(parser, namespace, values, option_string)
+
 def ascii_banner():
     return """
                       +:                     
@@ -103,6 +121,11 @@ def parse_arguments():
         help='The password used to decrypt/encrypt.',
         dest='processor_arguments.openssl-aes256-pbkdf2.password',
         default="EncryptMe"
+    )
+    args.add_argument(
+        '-r', '--authorization_rules',
+        help="Specify an Authorization Rule to deny requests which do not match the provided Key and Regex value pair. Specified as <Key>=<Regex>.",
+        action=ParseKeyValue
     )
 
     return args.parse_args()

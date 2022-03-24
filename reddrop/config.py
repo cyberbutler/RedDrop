@@ -60,6 +60,20 @@ config['failure_response'] = (
     "Failed"
 )
 
+# This is a list of rules which will authorize requests to pass data in
+# The list should be populated with dicitonaries in the following format:
+# ```
+# {'key': 'path || <insert parameter>', 'rule': 'regular expression'}
+# ```
+config['authorization_rules'] = []
+
+# Confused Configuration Template for validating user provided configuration options
+ConfigTemplate = {
+    'authorization_rules': confuse.Sequence({
+        'key': str,
+        'rule': str
+    })
+}
 
 # Set config from environment variables
 # Example: REDDROP_HOST=0.0.0.0

@@ -1,4 +1,4 @@
-auto_extract_tar: yes 
+auto_extract_tar: no
 auto_process: yes
 debug: yes
 dump_config: yes
@@ -12,6 +12,9 @@ processor_arguments:
     b64: {}
     gzip: {}
     hex: {}
+authorization_rules: 
+    - key: shouldn't work
+      rule: again
 failure_response: Failed
 success_response: Received
 log_format_template:

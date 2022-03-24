@@ -7,12 +7,13 @@ import datetime
 
 from flask import Flask, render_template_string, request
 
-from reddrop.logger import prettyPrintFormatString
 from reddrop.config import config
 from reddrop.processors import processors
-from reddrop.utils import getListFromConfigHeader
-from reddrop.request_processing import processRequestParameter
+from reddrop.authorization import authorize
 from reddrop.file_processing import processFile
+from reddrop.utils import getListFromConfigHeader
+from reddrop.logger import prettyPrintFormatString
+from reddrop.request_processing import processRequestParameter
 
 app = Flask(__name__)
 app.logger.setLevel(logging.INFO)
@@ -27,6 +28,7 @@ def add_header(response):
 
 @app.route('/', methods=['POST', 'GET', 'PUT'], defaults={"path": ""})
 @app.route('/<path:path>', methods=['POST', 'GET', 'PUT'])
+@authorize
 def processRequest(path):
     src_ip = request.headers.get('X-FORWARDED-FOR', request.remote_addr)
 
