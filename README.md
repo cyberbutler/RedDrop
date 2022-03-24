@@ -6,6 +6,7 @@ RedDrop Exfil Server is a Python Flask Web Server for Penetration Testers, Red T
 - [Automatic Archive Extraction](docs/ArchiveExtraction.md)
 - [JSON Logging](docs/JSONLogging.md)
 - [Configurable Options](docs/Configurations.md)
+- [Authorization Rules](docs/AuthorizationRules.md)
 
 This software is intended to be used as an a rudementary C2 endpoint for capturing web request data in various scenarios. Some examples may include:
 - A blind command injection vulnerability
