@@ -6,6 +6,8 @@ from .BaseProcessor import BaseProcessor
 class B64Processor(BaseProcessor):
     name = "b64"
     priority = 0
+    regex = re.compile(
+            b'^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$')
     
     def processData(self, encoded:bytes, *args, **kwargs):
         # We replace any space characters with + symbols as clients, proxies, 
@@ -21,7 +23,5 @@ class B64Processor(BaseProcessor):
         """
         encoded = encoded.replace(b' ', b'+') # Convert spaces to + characters
         encoded = encoded.replace(b'\n', b'') # Remove new line characters
-        regex = re.compile(
-            b'^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$')
         
-        return bool(regex.match(encoded))
+        return bool(self.regex.match(encoded))
