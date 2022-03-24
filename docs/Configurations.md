@@ -1,5 +1,5 @@
 # Configurations
-RedBox can be configured using a multitude of configurations through a specified YAML config file (`-c` CLI Arugment). The Default configuration, which you can view with the `--dump-config` CLI Argument, looks like this:
+RedDrop can be configured using a multitude of configurations through a specified YAML config file (`-c` CLI Arugment). The Default configuration, which you can view with the `--dump-config` CLI Argument, looks like this:
 
 ```yaml
 authorization_rules: []

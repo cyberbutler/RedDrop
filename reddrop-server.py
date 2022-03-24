@@ -43,5 +43,5 @@ if __name__ == "__main__":
         app.run(config['host'].get(), port=config['port'].get(), debug=config['debug'].get())
 
     else:
-        app.logger.info("Starting Redbox Exfil Server")
+        app.logger.info("Starting RedDrop Exfil Server")
         serve(app, host=config['host'].get(), port=config['port'].get())
