@@ -5,7 +5,7 @@ RedDrop offers configurable authorization rules which allow you to specify param
 python3 reddrop-server.py -r '<Key>=<Regular Expression>' -r '<Key>=<Regular Expression>'
 ```
 
-A Key can be on of:
+A Key can be one of:
 - Request Header
 - URL
 - Request Parameter (GET/POST/PUT)
