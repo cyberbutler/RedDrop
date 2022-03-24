@@ -16,6 +16,7 @@ processor_arguments:
     b64: {}
     gzip: {}
     hex: {}
+tags: []
 failure_response: Failed
 success_response: Received
 log_format_template:
@@ -45,6 +46,7 @@ A description of each option is as follows:
 | `port` | The Port to bind to on the host |
 | `process_list` | The modules, in processing order, to use for processing payloads |
 | `processor_arguments` | This is where you can ovveride the parameters specified in Processor Modules, as Processors are populated, so are the parameters they specify in the `--dump-config` option. |
+| `tags` | Specify tags to be applied to data captured during the runtime session. Be sure to remove tags between different sessions if you do not want them to be applied to new data. Sessions which have tags applied to them will save files in the configured `upload_dir` in a new directory named by joining tags with a `-` character | 
 | `failure_response` | The response to send to clients on a failed request. This is a [Jinja Template](https://jinja.palletsprojects.com/en/3.0.x/) | 
 | `success_response` | The response to send to clients on a successful request. This is a [Jinja Template](https://jinja.palletsprojects.com/en/3.0.x/) | 
 | `log_format_template` | These are how messages are displayed in the console, each child item in the default configuration can be changed to display data in a way that suits you best. <br>`initial_request` is displayed first, see the options avaialble for display in [`app.py`](https://github.com/cyberbutler/RedDrop/tree/master/reddrop/app.py).<br>`data_received` is displayed when a request parameter is received and for each subsequent parameter in each request. See the return dict in [`request_processing.py`](https://github.com/cyberbutler/RedDrop/tree/master/reddrop/request_processing.py) for display fields. <br>`file_uploaded` is displayed when a file is uploaded. See the return dict in [`file_processing.py`](https://github.com/cyberbutler/RedDrop/tree/master/reddrop/file_processing.py) for display fields.
