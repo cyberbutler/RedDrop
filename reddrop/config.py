@@ -67,6 +67,11 @@ config['failure_response'] = (
 # ```
 config['authorization_rules'] = []
 
+
+# Specify tags to be applied to data captured during the runtime session
+# Be sure to remove tags between different sessions if you do not want them to be applied to new data.
+config['tags'] = []
+
 # Confused Configuration Template for validating user provided configuration options
 ConfigTemplate = {
     'authorization_rules': confuse.Sequence({

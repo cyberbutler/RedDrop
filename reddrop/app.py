@@ -40,6 +40,7 @@ def processRequest(path):
         "remote_addr": request.remote_addr,
         "src": src_ip,
         "method": request.method,
+        "tags": config['tags'].get(),
         "path": path,
         "files": [],
         "headers": dict(request.headers),
