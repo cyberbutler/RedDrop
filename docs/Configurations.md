@@ -2,6 +2,7 @@
 RedBox can be configured using a multitude of configurations through a specified YAML config file (`-c` CLI Arugment). The Default configuration, which you can view with the `--dump-config` CLI Argument, looks like this:
 
 ```yaml
+authorization_rules: []
 auto_extract_tar: no
 auto_process: yes
 debug: no
@@ -36,6 +37,7 @@ process_list_header: Process
 A description of each option is as follows:
 | Option | Description |
 | ------ | ----------- |
+| `authorization_rules` | The [Authorization Rules](AuthorizationRules.md) to use. A list of dictionaries in the format: ```{'key': '<Request Key>', 'rule': '<Regular Expression>'}``` |
 | `auto_extract_tar` | Automatically extract uploaded TAR files.<br> This software uses a small function to check if any tar members have insecure filenames before extraction |
 | `auto_process` | Automatically attempt to identify and process payloads, rather than through the `process_list` |
 | `debug` | Enable Flask's Debugger |
