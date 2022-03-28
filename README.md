@@ -84,6 +84,8 @@ optional arguments:
                         requests which do not match the provided
                         Key and Regex value pair. Specified as
                         <Key>=<Regex>. (default: None)
+  -t TAGS, --tag TAGS   Tag data received during this session in the logs as well as the directory files are uploaded to. Example:
+                        -t log4j -t acme.org (default: None)
 
 Far more configuration options exist which must be specified in Environment Variables, use `--dump-config` to see all of the options
 
