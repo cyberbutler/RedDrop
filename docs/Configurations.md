@@ -16,6 +16,10 @@ processor_arguments:
     b64: {}
     gzip: {}
     hex: {}
+gunicorn:
+    defaults:
+        bind: 0.0.0.0:80
+        workers: <Dependent on Your CPUs>
 tags: []
 failure_response: Failed
 success_response: Received
@@ -46,6 +50,7 @@ A description of each option is as follows:
 | `port` | The Port to bind to on the host |
 | `process_list` | The modules, in processing order, to use for processing payloads |
 | `processor_arguments` | This is where you can ovveride the parameters specified in Processor Modules, as Processors are populated, so are the parameters they specify in the `--dump-config` option. |
+| `gunicorn` | Options passed to the Gunicorn Production Web Server, see [the settings documentation](https://docs.gunicorn.org/en/stable/settings.html) for all options |
 | `tags` | Specify tags to be applied to data captured during the runtime session. Be sure to remove tags between different sessions if you do not want them to be applied to new data. Sessions which have tags applied to them will save files in the configured `upload_dir` in a new directory named by joining tags with a `-` character | 
 | `failure_response` | The response to send to clients on a failed request. This is a [Jinja Template](https://jinja.palletsprojects.com/en/3.0.x/) | 
 | `success_response` | The response to send to clients on a successful request. This is a [Jinja Template](https://jinja.palletsprojects.com/en/3.0.x/) | 
