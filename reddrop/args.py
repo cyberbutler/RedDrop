@@ -133,5 +133,15 @@ def parse_arguments():
         action='append',
         dest='tags'
     )
+    args.add_argument(
+        '--tls-keyfile',
+        help='Enables TLS Support. (Production Only) The path to a TLS key file',
+        dest='gunicorn.keyfile'
+    )
+    args.add_argument(
+        '--tls-certfile',
+        help='Enables TLS Support. (Production Only) The path to a TLS cert file',
+        dest='gunicorn.certfile'
+    )
 
     return args.parse_args()
