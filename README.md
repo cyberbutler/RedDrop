@@ -1,5 +1,7 @@
 ![Red Drop](docs/RedDrop.png)
 # RedDrop Exfil Server
+[Check out the accompanying MaverisLabs Blog Post Here!](https://medium.com/maverislabs/data-exfiltration-using-reddrop-13bcbad7acb0?source=friends_link&sk=34320be3746773a82d065d03ea05111b)
+
 RedDrop Exfil Server is a Python Flask Web Server for Penetration Testers, Red Teamers, and Security Professionals which features:
 - [File Upload](docs/FileUpload.md)
 - [Automatic Payload Processing](docs/PayloadProcessing.md)
@@ -12,6 +14,7 @@ This software is intended to be used as an a rudementary C2 endpoint for capturi
 - A blind command injection vulnerability
 - An XSS attack where a quick and dynamic web request logging server is needed
 - A situation where remote shell access has been obtained and a verbose-logging web-based exfiltration server is desired
+
 
 ## Demo
 [![Demo](https://img.youtube.com/vi/x9KmGCfyyZ0/0.jpg)](https://www.youtube.com/watch?v=x9KmGCfyyZ0)
