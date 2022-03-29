@@ -55,7 +55,7 @@ def processRequest(path):
 
     try:
         request_parameters = {}
-        if request.json is not None:
+        if request.is_json:
             request_parameters.update(request.json)
 
         if len(request.data) and not request.is_json:

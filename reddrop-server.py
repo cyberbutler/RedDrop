@@ -1,7 +1,7 @@
 
 from logging import DEBUG
 
-from waitress import serve
+import gunicorn.app.base
 from confuse.exceptions import NotFoundError
 
 import reddrop.authorization
@@ -10,9 +10,32 @@ from reddrop.config import ConfigTemplate, config
 from reddrop.args import parse_arguments
 from reddrop.logger import prettyPrintFormatString
 
+class RedDropApplication(gunicorn.app.base.BaseApplication):
+    """
+    The Gunicorn Application Base for Red Drop:
+    https://docs.gunicorn.org/en/stable/custom.html#custom-application
+    """
+
+    def __init__(self, app, options=None):
+        self.options = options or {}
+        self.application = app
+        super().__init__()
+
+    def load_config(self):
+        config = {key: value for key, value in self.options.items()
+                  if key in self.cfg.settings and value is not None}
+        for key, value in config.items():
+            self.cfg.set(key.lower(), value)
+
+    def load(self):
+        return self.application
+
 if __name__ == "__main__":
     import sys
     args = parse_arguments()
+
+    if args.config:
+        config.set_file(args.config)
 
     config.set_args(args, dots=True)
     
@@ -23,9 +46,6 @@ if __name__ == "__main__":
     if args.dump_config:
         print(config.dump())
         sys.exit()
-
-    if args.config:
-        config.set_file(args.config)
 
     try:
         config.get(ConfigTemplate)
@@ -44,4 +64,9 @@ if __name__ == "__main__":
 
     else:
         app.logger.info("Starting RedDrop Exfil Server")
-        serve(app, host=config['host'].get(), port=config['port'].get())
+        
+        options = config['gunicorn'].get()
+        options.update(config['gunicorn']['defaults'].get())
+        options['bind'] = f'{config["host"].get()}:{config["port"].get()}'
+
+        RedDropApplication(app, options).run()

@@ -86,6 +86,10 @@ optional arguments:
                         <Key>=<Regex>. (default: None)
   -t TAGS, --tag TAGS   Tag data received during this session in the logs as well as the directory files are uploaded to. Example:
                         -t log4j -t acme.org (default: None)
+  --tls-keyfile GUNICORN.KEYFILE
+                        Enables TLS Support. (Production Only) The path to a TLS key file (default: None)
+  --tls-certfile GUNICORN.CERTFILE
+                        Enables TLS Support. (Production Only) The path to a TLS cert file (default: None)
 
 Far more configuration options exist which must be specified in Environment Variables, use `--dump-config` to see all of the options
 

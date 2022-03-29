@@ -8,7 +8,7 @@ flask = "*"
 python-json-logger = "*"
 pycrypto = "*"
 confuse = "*"
-waitress = "*"
+gunicorn = "*"
 
 [dev-packages]
 

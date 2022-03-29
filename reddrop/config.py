@@ -1,3 +1,5 @@
+import multiprocessing
+
 import confuse
 
 config = confuse.Configuration('RedDrop', __name__)
@@ -71,6 +73,13 @@ config['authorization_rules'] = []
 # Specify tags to be applied to data captured during the runtime session
 # Be sure to remove tags between different sessions if you do not want them to be applied to new data.
 config['tags'] = []
+
+# Settings for the Production Gunicorn Server
+# See https://docs.gunicorn.org/en/stable/settings.html for available options.
+config['gunicorn']['defaults'] = {
+    'bind': f"{config['host'].get()}:{config['port'].get()}",
+    'workers': (multiprocessing.cpu_count() * 2) + 1
+}
 
 # Confused Configuration Template for validating user provided configuration options
 ConfigTemplate = {
