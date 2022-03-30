@@ -33,7 +33,7 @@ This software should not be left generally accessible to the broader Internet. I
 ### Docker
 ```bash
 mkdir uploads logs
-docker run -t -v "$PWD/uploads:/reddrop/uploads" -v "$PWD/logs:/reddrop/logs" -p "80:80" -n reddrop cyberbutler/reddrop-exfil-server -h
+docker run -t -v "$PWD/uploads:/reddrop/uploads" -v "$PWD/logs:/reddrop/logs" -p "80:80" -n reddrop cyberbutler/reddrop -h
 ```
 ### PipEnv
 ```bash

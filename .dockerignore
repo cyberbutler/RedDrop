@@ -6,3 +6,4 @@ uploads/
 .obsidian
 .dockerignore
 Dockerfile
+.DS_Store
