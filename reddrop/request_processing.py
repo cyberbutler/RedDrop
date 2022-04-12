@@ -25,11 +25,20 @@ def processRequestParameter(field, value, processing_list=[]) -> dict:
                 'It appears you have Auto Process enabled. This can cause issues in some cases where the `validate` functions of the Processors identify plaintext as something it is not. '
                 'Try forcing the encoding pattern and attempt your request again. '
                 f'Detected: Process Order: {processing_list}'
+                '\n'
+                'Attempting to process payload to last known good Processor'
             ))
+            if len(processing_list) > 1:
+                processing_list.pop(-1)
+                return processRequestParameter(field, value, processing_list)
+                
+            else:
+                processedData = None
+
         else:
             logger.error(f'There was an issue when attempting to decode the processedData. Is the data encoded or encrypted properly?')
 
-        processedData = None
+            processedData = None
     
 
     dataLogObject = {
